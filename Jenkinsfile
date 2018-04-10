@@ -9,19 +9,24 @@ pipeline {
         stage('Install') {
             steps {
                 sh 'apk --update add git'
-                sh 'npm install'
-                sh 'npm run bower install'
             }
         }
         stage('Build') {
             steps {
+                sh 'npm install'
+                sh 'npm run bower install'
                 sh 'npm run build'
-                sh 'npm run serve:dist'
             }
         }
         stage('Test') {
             steps {
               echo 'Test'
+            }
+        }
+        stage('Deliver') {
+            steps {
+             sh 'npm run serve:dist'
+             input message: 'Finished using the web site? (Click "Proceed" to continue)'
             }
         }
     }
