@@ -20,13 +20,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-              echo 'Test'
+              sh 'npm run test'
             }
         }
         stage('Deliver') {
             steps {
-             sh 'npm run serve:dist'
-             input message: 'Finished using the web site? (Click "Proceed" to continue)'
+             echo 'Deliver'
             }
         }
     }
