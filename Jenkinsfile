@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh 'apk --update add git'
                 sh 'npm install'
-                sh 'bower install'
+                sh 'npm run bower install'
             }
         }
         stage('Build') {
