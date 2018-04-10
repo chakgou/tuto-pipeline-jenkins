@@ -6,10 +6,11 @@ pipeline {
         }
     }
     stages {
-        stage('Install dependencies') {
+        stage('Install') {
             steps {
                 sh 'apk --update add git'
                 sh 'npm install'
+                sh 'bower install'
             }
         }
         stage('Build') {
