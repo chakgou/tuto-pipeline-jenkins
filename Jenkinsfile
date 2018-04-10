@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh 'apk --update add git'
                 sh 'npm install'
-                sh 'npm run bower install'
+                sh 'npm run bower install --allow-root'
             }
         }
         stage('Build') {
