@@ -20,6 +20,7 @@ pipeline {
       }
     }
     stage('Staging') {
+      agent any
       when {
         branch 'development'
       }
