@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-npm run serve:dist &
+npm run serve:dist
