@@ -20,6 +20,7 @@ pipeline {
         steps {
           sh './scripts/jenkins/deliver-to-staging.sh'
           input message: 'Finished using the web site for test? (Click "Proceed" to continue)'
+          sh './scripts/jenkins/kill.sh'
         }
       }
       stage('Deploy') {
