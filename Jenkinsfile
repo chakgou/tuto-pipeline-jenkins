@@ -1,12 +1,13 @@
 pipeline {
-  agent {
-    dockerfile {
-      filename 'Dockerfile.Jenkins'
-      dir 'scripts/jenkins'
-    }
-  }
+  agent none
   stages {
     stage('Build') {
+      agent {
+        dockerfile {
+          filename 'Dockerfile.Jenkins'
+          dir 'scripts/jenkins'
+        }
+      }
       steps {
         sh 'npm install'
         sh 'npm run bower install'
@@ -35,7 +36,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        sh 'docker info'
+        echo 'deploy'
       }
     }
   }
