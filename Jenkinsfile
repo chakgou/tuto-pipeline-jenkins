@@ -19,13 +19,13 @@ pipeline {
         echo 'test OK'
       }
     }
-    stage('Deliver') {
+    stage('Staging') {
       when {
         branch 'development'
       }
       steps {
         sh './scripts/jenkins/deliver-to-staging.sh'
-        input message: 'Finished using the web site for test? (Click "Proceed" to continue)'
+        input message: 'Validez-vous l'application? (Cliquez "Proceed" pour continuer)'
       }
     }
     stage('Deploy') {
@@ -33,7 +33,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        echo 'Deploy'
+        sh 'docker info'
       }
     }
   }
