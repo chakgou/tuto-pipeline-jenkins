@@ -17,7 +17,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        echo 'test OK'
+        sh 'npm --version'
       }
     }
     stage('Staging') {
