@@ -1,7 +1,9 @@
 pipeline {
   agent {
-    dockerfile true
-    args '-p 3000:3000'
+    dockerfile {
+      filename 'Dockerfile.Jenkins'
+      dir 'scripts/jenkins'
+    }
   }
   stages {
     stage('Build') {
