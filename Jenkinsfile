@@ -16,6 +16,7 @@ pipeline {
       }
     }
     stage('Test') {
+      agent any
       steps {
         sh 'npm --version'
       }
