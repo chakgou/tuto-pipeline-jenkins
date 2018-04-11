@@ -5,6 +5,7 @@ pipeline {
         steps {
           sh 'npm install'
           sh 'npm run bower install'
+          sh 'npm install serve'
           sh 'npm run build'
         }
       }
