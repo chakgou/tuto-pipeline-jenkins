@@ -26,6 +26,7 @@ pipeline {
       steps {
         sh './scripts/jenkins/deliver-to-staging.sh'
         input message: 'Validez-vous l\'application? (Cliquez "Proceed" pour continuer)'
+        sh 'docker info'
       }
     }
     stage('Deploy') {
