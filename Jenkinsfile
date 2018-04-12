@@ -1,16 +1,16 @@
 node {
   def app
-    stage('Clone repo') {
-      checkout scm
+  stage('Clone repo') {
+    checkout scm
+  }
+  stage('Docker:Build') {
+    app = docker.build("app/todos:${env.BUILD_ID}")
+  }
+  stage('Test') {
+    app.inside {
+      echo 'test ok'
     }
-    stage('Docker:Build') {
-      app = docker.build("app/todos:${env.BUILD_ID}")
-    }
-    stage('Test') {
-      app.inside {
-        echo 'test ok'
-      }
-    }
+  }
 
   switch(env.BRANCH_NAME) {
     case 'development':
@@ -22,7 +22,7 @@ node {
     break
     case 'master':
     stage('Deploy') {
-      echo 'deploy'
+      echo 'Push Docker image to registry'
     }
     break
     default:
