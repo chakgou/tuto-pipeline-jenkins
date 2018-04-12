@@ -8,7 +8,7 @@ node {
   }
   stage('Test') {
     app.inside {
-      echo 'test ok'
+      sh 'npm run test'
     }
   }
 
