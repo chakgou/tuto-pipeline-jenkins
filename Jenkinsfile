@@ -5,24 +5,18 @@ node {
       echo 'build'
     }
     stage('Test') {
-      steps {
-        echo 'test'
-      }
+      echo 'test'
     }
     stage('Staging') {
       when {
         branch 'development'
       }
-      steps {
-        input message: 'Validez-vous l\'application? (Cliquez "Proceed" pour continuer)'
-      }
+      input message: 'Validez-vous l\'application? (Cliquez "Proceed" pour continuer)'
     }
     stage('Deploy') {
       when {
         branch 'master'
       }
-      steps {
-        echo 'deploy'
-      }
+      echo 'deploy'
     }
 }
