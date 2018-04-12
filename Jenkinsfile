@@ -1,6 +1,6 @@
-pipeline {
+node {
   def app
-  stages {
+
     stage('Build') {
       echo 'build'
     }
@@ -25,5 +25,4 @@ pipeline {
         echo 'deploy'
       }
     }
-  }
 }
