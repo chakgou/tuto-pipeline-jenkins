@@ -4,7 +4,7 @@ node {
       checkout scm
     }
     stage('Docker:Build') {
-      app = docker.build('app/todos:${env.BUILD_ID}')
+      app = docker.build("app/todos:${env.BUILD_ID}")
     }
     stage('Test') {
       app.inside {
