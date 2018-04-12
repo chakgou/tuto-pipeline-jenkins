@@ -1,6 +1,6 @@
 node {
   def app
-    stage('Build') {
+    stage('Clone repo') {
       checkout scm
     }
     stage('Build') {
@@ -13,9 +13,6 @@ node {
       input message: 'Validez-vous l\'application? (Cliquez "Proceed" pour continuer)'
     }
     stage('Deploy') {
-      when {
-        branch 'master'
-      }
       echo 'deploy'
     }
 }
