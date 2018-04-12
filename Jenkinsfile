@@ -3,11 +3,13 @@ node {
     stage('Clone repo') {
       checkout scm
     }
-    stage('Build') {
-      echo 'build'
+    stage('Docker:Build') {
+      app = docker.build("app/todos")
     }
     stage('Test') {
-      echo 'test'
+      app.inside {
+        sh 'npm run test'
+      }
     }
     stage('Staging') {
       input message: 'Validez-vous l\'application? (Cliquez "Proceed" pour continuer)'
