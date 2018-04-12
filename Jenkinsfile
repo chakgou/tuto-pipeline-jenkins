@@ -1,6 +1,8 @@
 node {
   def app
-
+    stage('Build') {
+      checkout scm
+    }
     stage('Build') {
       echo 'build'
     }
@@ -8,9 +10,6 @@ node {
       echo 'test'
     }
     stage('Staging') {
-      when {
-        branch 'development'
-      }
       input message: 'Validez-vous l\'application? (Cliquez "Proceed" pour continuer)'
     }
     stage('Deploy') {
