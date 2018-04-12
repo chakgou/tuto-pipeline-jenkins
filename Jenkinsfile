@@ -24,7 +24,6 @@ node {
     }
     break
     default:
-      throw
     break
   }
 }
